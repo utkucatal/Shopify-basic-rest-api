@@ -1,0 +1,716 @@
+{
+	"info": {
+		"_postman_id": "67783134-93d6-4a08-ad88-2f7f5cec77cd",
+		"name": "Shopify Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21150775"
+	},
+	"item": [
+		{
+			"name": "Create Metafield for a Product",
+			"item": [
+				{
+					"name": "Get_product_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{Token}}",
+								"value": "{{Token_value}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}products.json",
+							"host": [
+								"{{url}}products",
+								"json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_metafield_does_not_work",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{Token}}",
+								"value": "{{Token_value}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"metafield\": {\r\n    \"namespace\": \"newvalue\",\r\n    \"key\": \"Image 1 Path\",\r\n    \"value\": \"https://drive.google.com/file/d/1aUzK8PQ7qrDvz6sc1YfuoBl7m9uj1nFQ/view\",\r\n    \"type\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}products/6986157260940/metafields.json\n",
+							"host": [
+								"{{url}}products"
+							],
+							"path": [
+								"6986157260940",
+								"metafields.json\n"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "checkouts",
+			"item": [
+				{
+					"name": "Get_product_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{Token}}",
+								"value": "{{Token_value}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}checkouts.json",
+							"host": [
+								"{{url}}checkouts",
+								"json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_metafield_does_not_work",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{Token}}",
+								"value": "{{Token_value}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"metafield\": {\r\n    \"namespace\": \"newvalue\",\r\n    \"key\": \"Image 1 Path\",\r\n    \"value\": \"https://drive.google.com/file/d/1aUzK8PQ7qrDvz6sc1YfuoBl7m9uj1nFQ/view\",\r\n    \"type\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}products/6986157260940/metafields.json\n",
+							"host": [
+								"{{url}}products"
+							],
+							"path": [
+								"6986157260940",
+								"metafields.json\n"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List_products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let responseData = pm.response.json();\r",
+							"pm.globals.set(\"product_id\", responseData.products[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}products.json?fields=id,images,title\n",
+					"host": [
+						"{{url}}products",
+						"json"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "id,images,title\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_product_image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"//let responseData = pm.response.json();\r",
+							"//pm.globals.set(\"image_id\", responseData.images[2].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}products/{{product_id}}/images.json",
+					"host": [
+						"{{url}}products"
+					],
+					"path": [
+						"{{product_id}}",
+						"images.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New_product_image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"image\": {\r\n            \"src\": \"https://cdn.shopify.com/s/files/1/0107/9820/2938/products/CLOVECORE4954copy_4d257312-9baf-40f1-aad2-b10d8af11227.jpg\",\r\n            \"position\": 2,\r\n            \"product_id\": 6990894956684\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://utkuapitest.myshopify.com/admin/api/2022-04/products/6990894956684/images.json",
+					"protocol": "https",
+					"host": [
+						"utkuapitest",
+						"myshopify",
+						"com"
+					],
+					"path": [
+						"admin",
+						"api",
+						"2022-04",
+						"products",
+						"6990894956684",
+						"images.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_locations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://f615603d17d899102fd4ee05e7965294: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@utkuapitest.myshopify.com/admin/api/2022-04/locations.json",
+					"protocol": "https",
+					"auth": {
+						"user": "f615603d17d899102fd4ee05e7965294",
+						"password": "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"
+					},
+					"host": [
+						"utkuapitest",
+						"myshopify",
+						"com"
+					],
+					"path": [
+						"admin",
+						"api",
+						"2022-04",
+						"locations.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_iinventory_levels",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://f615603d17d899102fd4ee05e7965294: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@utkuapitest.myshopify.com/admin/api/2022-04/inventory_levels.json?inventory_item_ids=42569219014796,42587081605260",
+					"protocol": "https",
+					"auth": {
+						"user": "f615603d17d899102fd4ee05e7965294",
+						"password": "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"
+					},
+					"host": [
+						"utkuapitest",
+						"myshopify",
+						"com"
+					],
+					"path": [
+						"admin",
+						"api",
+						"2022-04",
+						"inventory_levels.json"
+					],
+					"query": [
+						{
+							"key": "inventory_item_ids",
+							"value": "42569219014796,42587081605260"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_product_stock",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"location_id\": 64838074508,\r\n  \"inventory_item_id\": 42587081605260,\r\n  \"available\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://utkuapitest.myshopify.com/admin/api/2022-04/inventory_levels/set.json",
+					"protocol": "https",
+					"host": [
+						"utkuapitest",
+						"myshopify",
+						"com"
+					],
+					"path": [
+						"admin",
+						"api",
+						"2022-04",
+						"inventory_levels",
+						"set.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_product_variiants",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://f615603d17d899102fd4ee05e7965294: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@utkuapitest.myshopify.com/admin/api/2022-04/products/6990775222412/variants.json",
+					"protocol": "https",
+					"auth": {
+						"user": "f615603d17d899102fd4ee05e7965294",
+						"password": "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"
+					},
+					"host": [
+						"utkuapitest",
+						"myshopify",
+						"com"
+					],
+					"path": [
+						"admin",
+						"api",
+						"2022-04",
+						"products",
+						"6990775222412",
+						"variants.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_product_image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}products/{{product_id}}/images/{{image_id}}.json",
+					"host": [
+						"{{url}}products"
+					],
+					"path": [
+						"{{product_id}}",
+						"images",
+						"{{image_id}}.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_new_product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Shopify-Access-Token",
+						"value": "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",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"product\": {\r\n            \"title\": \"New Product\",\r\n            \"body_html\": \"\\u003cstrong\\u003eGood product!\\u003c\\/strong\\u003e\",\r\n            \"vendor\": \"Utku\",\r\n            \"product_type\": \"Shoes\",\r\n            \"tags\": [\"Jack \\u0026 Jones\", \"Nike\", \"Sports\"]\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://utkuapitest.myshopify.com/admin/api/2022-04/products.json",
+					"protocol": "https",
+					"host": [
+						"utkuapitest",
+						"myshopify",
+						"com"
+					],
+					"path": [
+						"admin",
+						"api",
+						"2022-04",
+						"products.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_locations Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{Token}}",
+						"value": "{{Token_value}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://f615603d17d899102fd4ee05e7965294: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@utkuapitest.myshopify.com/admin/api/2022-04/locations.json",
+					"protocol": "https",
+					"auth": {
+						"user": "f615603d17d899102fd4ee05e7965294",
+						"password": "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"
+					},
+					"host": [
+						"utkuapitest",
+						"myshopify",
+						"com"
+					],
+					"path": [
+						"admin",
+						"api",
+						"2022-04",
+						"locations.json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
